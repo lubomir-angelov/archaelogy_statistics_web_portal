@@ -1,4 +1,6 @@
-fastapi
-nicegui
-matplotlib
-pandas
+fastapi==0.115.13
+nicegui==2.20.0
+matplotlib==3.10.3
+pandas==2.3.0
+pydantic-settings==2.10.1
+sqlalchemy==2.0.41
