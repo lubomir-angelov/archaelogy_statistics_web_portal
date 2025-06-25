@@ -1,4 +1,4 @@
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 
 # stub Base so Base.metadata.create_all(engine) is a no-op
 Base = declarative_base()
