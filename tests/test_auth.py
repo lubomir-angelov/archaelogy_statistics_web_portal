@@ -20,7 +20,7 @@ def test_register_login_logout(client):
     resp = client.post(
         "/login",
         data={"username": "alice", "password": "secret123"},
-        allow_redirects=False
+        follow_redirects=False
     )
     assert resp.status_code in (302, 303)
     # should set a session cookie
@@ -35,5 +35,5 @@ def test_register_login_logout(client):
     resp = client.get("/logout", follow_redirects=True)
     assert resp.status_code == 200
     # after logout, index should redirect to login
-    resp = client.get("/", allow_redirects=False)
+    resp = client.get("/", follow_redirects=False)
     assert resp.status_code in (302, 303)

@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from nicegui import Client, ui, app as fastapi_app
+from nicegui import ui, app as fastapi_app
 
 # local imports
 from src.analytics import build_analytics_page
@@ -17,8 +17,7 @@ def create_app() -> FastAPI:
         build_analytics_page()
 
     # Mount NiceGUI onto FastAPI’s router
-    from nicegui import app as nice_app
-    nice_app.include_router(app.router)
+    fastapi_app.include_router(app.router)
 
     # *** DO NOT call ui.run() or ui.run_with() here! ***
-    return nice_app
+    return fastapi_app
